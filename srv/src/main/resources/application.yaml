@@ -1,0 +1,15 @@
+cds:
+  odataV4.endpoint.path: /
+logging.level:
+  com.sap.cds: DEBUG
+---
+spring:
+  config.activate.on-profile: default
+  sql.init.platform: h2
+cds:
+  data-source.auto-config.enabled: false
+  security.mock.users:
+    alice:
+      roles: [ "admin" ]
+    bob:
+      roles: [ "user" ]

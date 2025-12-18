@@ -1,0 +1,20 @@
+{
+  "name": "@capire/bookshop-java",
+  "version": "2.0.4",
+  "description": "Our primer sample for getting started in a nutshell.",
+  "repository": "https://github.com/capire/bookshop-java",
+  "files": [
+    "app",
+    "srv",
+    "db",
+    "index.cds"
+  ],
+  "devDependencies": {
+    "@sap/cds": "^9",
+    "@sap/cds-dk": "^9"
+  },
+  "scripts": {
+    "start": "mvn spring-boot:run"
+  },
+  "license": "Apache-2.0"
+}
