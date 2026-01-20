@@ -56,8 +56,9 @@ public class CatalogHandler implements EventHandler {
   private void updateBookQuantity(Integer bookId, Integer quantity) {
     CqnUpdate update = Update.entity(Books_.class)
       .set(Books.STOCK, CQL.get(Books.STOCK).minus(quantity))
-      .where(b -> b.get(Books.ID).eq(bookId)
-      .and(b.get(Books.STOCK).ge(quantity)));
+      .byId(bookId)
+      // .where(b -> b.get(Books.ID).eq(bookId)
+      .where(b -> b.get(Books.STOCK).ge(quantity));
     Result updateResult = persistenceService.run(update);
     if(updateResult.rowCount()==0) {
       CqnSelect select = Select.from(cds.gen.sap.capire.bookshop.Books_.CDS_NAME).byId(bookId); 
