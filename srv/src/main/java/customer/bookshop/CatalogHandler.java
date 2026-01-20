@@ -37,19 +37,19 @@ public class CatalogHandler implements EventHandler {
   }
 
   @After(event = CqnService.EVENT_READ)
-  public void AfterReadListOfBooks(Stream<ListOfBooks> books) {
+  public void afterReadListOfBooks(Stream<ListOfBooks> books) {
     books.forEach(book -> {
-      if(book.getStock()>111)
-        book.setTitle(book.getTitle()+" -- 11% discount!");
+      if(book.getStock() > 111)
+        book.setTitle(book.getTitle() + " -- 11% discount!");
     });
   }
 
-  @On(event = SubmitOrderContext.CDS_NAME)
+  @On
   public void submitOrder(SubmitOrderContext context) {
     Integer quantity = context.getQuantity();
-    if(quantity<=0)
+    if(quantity <= 0)
       throw new ServiceException(ErrorStatuses.BAD_REQUEST, "quantity has to be 1 or more").messageTarget("submitOrder");
-    updateBookQuantity(context.getBook(), context.getQuantity());
+    updateBookQuantity(context.getBook(), quantity);
     context.setCompleted();
   }
 
