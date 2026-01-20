@@ -18,8 +18,8 @@ import com.sap.cds.services.persistence.PersistenceService;
 import com.sap.cds.services.handler.annotations.After;
 import com.sap.cds.services.handler.annotations.On;
 
-import cds.gen.sap.capire.bookshop.Books;
-import cds.gen.sap.capire.bookshop.Books_;
+import cds.gen.catalogservice.Books;
+import cds.gen.catalogservice.Books_;
 import cds.gen.catalogservice.CatalogService_;
 import cds.gen.catalogservice.ListOfBooks;
 import cds.gen.catalogservice.SubmitOrderContext;
@@ -39,7 +39,7 @@ public class CatalogHandler implements EventHandler {
   @After(event = CqnService.EVENT_READ)
   public void afterReadListOfBooks(Stream<ListOfBooks> books) {
     books.forEach(book -> {
-      if(book.getStock() > 111)
+      if (book.getStock() > 111)
         book.setTitle(book.getTitle() + " -- 11% discount!");
     });
   }
@@ -47,7 +47,7 @@ public class CatalogHandler implements EventHandler {
   @On
   public void submitOrder(SubmitOrderContext context) {
     Integer quantity = context.getQuantity();
-    if(quantity <= 0)
+    if (quantity <= 0)
       throw new ServiceException(ErrorStatuses.BAD_REQUEST, "quantity has to be 1 or more").messageTarget("submitOrder");
     updateBookQuantity(context.getBook(), quantity);
     context.setCompleted();
@@ -59,10 +59,10 @@ public class CatalogHandler implements EventHandler {
       .where(b -> b.get(Books.ID).eq(bookId)
       .and(b.get(Books.STOCK).ge(quantity)));
     Result updateResult = persistenceService.run(update);
-    if(updateResult.rowCount()==0) {
-      CqnSelect select = Select.from(cds.gen.sap.capire.bookshop.Books_.CDS_NAME).byId(bookId); 
+    if (updateResult.rowCount() == 0) {
+      CqnSelect select = Select.from(Books_.CDS_NAME).byId(bookId); 
       Result selectResult = persistenceService.run(select);
-      if(selectResult.rowCount()==0)
+      if (selectResult.rowCount() == 0)
         throw new ServiceException(ErrorStatuses.CONFLICT, "Book not found");
       throw new ServiceException(ErrorStatuses.CONFLICT, "Quantity exceeds stock");
     }
