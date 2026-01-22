@@ -53,7 +53,7 @@ public class CatalogHandler implements EventHandler {
     context.setCompleted();
   }
 
-  private void updateBookQuantity(Integer bookId, Integer quantity) {
+  protected void updateBookQuantity(Integer bookId, Integer quantity) {
     CqnUpdate update = Update.entity(Books_.class)
       .set(Books.STOCK, CQL.get(Books.STOCK).minus(quantity))
       .where(b -> b.get(Books.ID).eq(bookId)
