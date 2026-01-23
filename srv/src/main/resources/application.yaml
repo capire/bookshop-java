@@ -1,7 +1,5 @@
 cds:
   odataV4.endpoint.path: /
-logging.level:
-  com.sap.cds: DEBUG
 ---
 spring:
   config.activate.on-profile: default
