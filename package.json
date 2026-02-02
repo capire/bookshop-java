@@ -9,6 +9,9 @@
     "db",
     "index.cds"
   ],
+  "dependencies": {
+    "@capire/common": "*"
+  },
   "devDependencies": {
     "@sap/cds": "^9",
     "@sap/cds-dk": "^9"
