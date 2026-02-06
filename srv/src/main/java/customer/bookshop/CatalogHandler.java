@@ -1,5 +1,6 @@
 package customer.bookshop;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.sap.cds.services.ServiceException;
@@ -30,10 +31,10 @@ import java.util.stream.Stream;
 @ServiceName(CatalogService_.CDS_NAME)
 public class CatalogHandler implements EventHandler {
 
-  private final PersistenceService persistenceService;
+  @Autowired
+  PersistenceService persistenceService;
 
-  public CatalogHandler(PersistenceService persistenceService) {
-    this.persistenceService = persistenceService;
+  public CatalogHandler() {
   }
 
   @After(event = CqnService.EVENT_READ)
