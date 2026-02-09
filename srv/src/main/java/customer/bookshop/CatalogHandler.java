@@ -34,9 +34,6 @@ public class CatalogHandler implements EventHandler {
   @Autowired
   PersistenceService persistenceService;
 
-  public CatalogHandler() {
-  }
-
   @After(event = CqnService.EVENT_READ)
   public void afterReadListOfBooks(Stream<ListOfBooks> books) {
     books.forEach(book -> {
