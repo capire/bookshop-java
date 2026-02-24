@@ -2,6 +2,7 @@
 
 This is our primer sample for [Getting Started in a Nutshell](https://cap.cloud.sap/docs/get-started/in-a-nutshell?impl-variant=java).
 
+[![REUSE status](https://api.reuse.software/badge/github.com/capire/samples-java)](https://api.reuse.software/info/github.com/capire/bookshop-java)
 
 ## Get it
 
@@ -27,4 +28,4 @@ mvn spring-boot:run
 
 ## License
 
-Copyright (c) 2022 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
+Copyright 2026 SAP SE or an SAP affiliate company and capire/bookshop-java contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/capire/bookshop-java).
