@@ -2,7 +2,7 @@ version = 1
 SPDX-PackageName = "capire-bookshop-java"
 SPDX-PackageSupplier = "The cap team <cap@sap.com>"
 SPDX-PackageDownloadLocation = "https://github.com/capire/bookshop-java"
-SPDX-PackageComment = "This project demonstrates how to set up a monorepo with multiple SAP CAP microservices and deploy them to SAP BTP using a single shared database instance."
+SPDX-PackageComment = "This project contains a sample bookshop application based on the SAP CAP Java framework."
 
 [[annotations]]
 path = "**"
